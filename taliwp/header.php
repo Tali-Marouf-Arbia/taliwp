@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo get_bloginfo('name'); ?></title>
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-xW6gxVxXcJnn2nQjy9emFvPYIW1zHxjmnqeH2IzV1hMIxytc0gzzWV8u3nmndhNWQ/8q9CZKl/MvZpMVJvEbYA==" crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
+    <script src="https://kit.fontawesome.com/ef8f9a9a47.js" crossorigin="anonymous"></script>
     <!-- inclusion jQuery
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script> -->
     <?php wp_head(); ?>

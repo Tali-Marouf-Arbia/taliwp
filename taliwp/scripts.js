@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 
-// animations form / cv-button
+// animation form / cv-button
 document.addEventListener('DOMContentLoaded', function() {
     var formContainer = document.getElementById('wpcf7-f16-o1');
     var cvButton = document.querySelector('.cv-button');

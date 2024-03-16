@@ -25,7 +25,12 @@ function register_my_menus() {
 add_action('after_setup_theme', 'register_my_menus');
 
 
-
+// Fonction pour ajouter le support des miniatures pour le Custom PT "Photos"
+function add_thumbnail_photos() {
+    add_theme_support('post-thumbnails');
+}
+// Ajout de l'action pour exécuter la fonction lors de l'initialisation d'ACF
+add_action('acf/init', 'add_thumbnail_photos');
 
 
 

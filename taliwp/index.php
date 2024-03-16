@@ -25,13 +25,38 @@ get_header(); ?>
 
 
 
-        
+
         
         <section class="projets-container">
             <div class="title-projets">
                 <h2 class="title-projet">Projects.</h2>
                 <p class="introProjet">I enthusiastically explored HTML, CSS, PHP, and JavaScript through realistic projects that simulated a professional environment. This experience has allowed me to discover the unlimited potential of technology in creating captivating online experiences.</p>
             </div>
+
+            <div class="projets-cards">
+                <article class="card">
+                    <a href="#">
+                        <img/>
+                        <div class="card-content">
+                            <div class="card-txt">
+                                <h3 class="card-title">TITRE</h3>
+                                <p class="card-subtitle">Description</p>
+                            </div>
+                        </div>
+                    </a>
+                </article>
+            </div>
+
+
+
+
+            
+            <div class="card-tech">
+                    <!-- <i class="fa-brands fa-html5 fa-xl" style="color: #ff0000;"></i>
+                    <i class="fa-brands fa-css3-alt fa-xl" style="color: #0000ff;"></i> -->
+            </div>
+
+
         </section>
         
         
