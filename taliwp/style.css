@@ -427,11 +427,20 @@ input.wpcf7-text{
     border-radius: 8px;
     border: 1px #8d02ca solid;
 }
+#introContact{
+    width: 70%;
+}
+.introContact{
+    margin-top: 90px;
+    font-size: 26px;
+    font-weight: 600;
+    text-align: center;
+}
 .contact-container{
     display: flex;
     justify-content: center;
     align-items: end;
-    margin: 150px 0 40px 0;
+    margin: 0 0 50px 0;
     width: 90%;
 }
 .map-container,
@@ -593,7 +602,8 @@ iframe{
 
 #wpcf7-f16-o1,
 .cv-button,
-.lien-github a {
+#lien-github,
+.projet{
     --rotateX: 0deg; 
     --rotateY: 0deg; 
     transform: perspective(1000px) rotateX(var(--rotateX)) rotateY(var(--rotateY)) scale3d(1, 1, 1);
@@ -601,7 +611,8 @@ iframe{
 
 #wpcf7-f16-o1:hover,
 .cv-button:hover,
-#lien-github:hover {
+#lien-github:hover,
+.projet:hover {
     transform: perspective(1000px) rotateX(var(--rotateX)) rotateY(var(--rotateY)) scale3d(1.05, 1.05, 1.05);
 }
 
@@ -753,33 +764,75 @@ figure.wp-block-image img,
 .projets-list {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+    gap: 30px;
+    margin-top: 55px;
 }
-
 .projet {
+    height: 294px;
+    border: 3px solid black;
     border-radius: 25px;
-    background-color: #f5f5f5; /* couleur de fond gris clair */
+    background-color:#240159; 
     padding: 20px;
+    box-shadow: rgb(255, 255, 255) 0px 1px 8px;
 }
-
 .projet-link {
-    text-decoration: none; /* supprimer le soulignage du lien */
-    color: inherit; /* hériter de la couleur du texte parent */
+    text-decoration: none; 
+    color: inherit; 
 }
-
-/* Assurez-vous que les images ne dépassent pas de leur conteneur */
 .projet img {
     max-width: 100%;
-    height: auto;
+    height: 60%;
+    object-fit: cover;
+    border-radius: 25px ;
 }
-
-/* Style pour le titre */
 .projet h3 {
-    margin-top: 10px; /* un peu d'espace au-dessus du titre */
+    margin-top: 10px;
+    text-align: center;
+    color: #ffffff;
+}
+.projet p {
+    text-align: center;
+    color: #97a6c3;
 }
 
-/* Style pour le sous-titre */
-.projet p {
-    font-style: italic; /* texte en italique */
-    color: #666; /* couleur de texte gris */
+.fleches-container{
+    width: 70%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.fleches-container a{
+    width: 50px;
+    margin-bottom: 30px;
+}
+.fleches-container a img{
+    width: 100%;
+}
+@keyframes moveLeftRight {
+    0% {
+        transform: translateX(0);
+    }
+    50% {
+        transform: translateX(5px);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+.arrow-left:hover {
+    animation: moveRightLeft 0.5s ease infinite;
+}
+@keyframes moveRightLeft {
+    0% {
+        transform: translateX(0);
+    }
+    50% {
+        transform: translateX(-5px);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+.arrow-right:hover {
+    animation: moveLeftRight 0.5s ease infinite;
 }

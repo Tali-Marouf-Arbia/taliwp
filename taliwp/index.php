@@ -22,7 +22,7 @@ get_header(); ?>
         </section>
         <section class="projets-container">
             <div class="title-projets">
-                <h2 class="title-projet">Projects.</h2>
+                <h2 id="projets" class="title-projet">Projects.</h2>
                 <p class="introProjet">I enthusiastically explored HTML, CSS, PHP, and JavaScript through realistic projects that simulated a professional environment. This experience has allowed me to discover the unlimited potential of technology in creating captivating online experiences.</p>
             </div>
             <div class="projets-list">
@@ -35,17 +35,17 @@ get_header(); ?>
                 if ($projects_query->have_posts()) :
                     while ($projects_query->have_posts()) : $projects_query->the_post();
                 ?>
-                    <a href="<?php the_permalink(); ?>" class="projet-link" target="_blank">
-                        <div class="projet">
-                            <?php
-                            if (has_post_thumbnail()) {
-                                the_post_thumbnail('thumbnail');
-                            }
-                            ?>
-                            <h3><?php the_title(); ?></h3>
-                            <p><?php echo get_field('sous-titre'); ?></p>
-                        </div>
-                    </a>
+                        <a href="<?php the_permalink(); ?>" class="projet-link" target="_blank">
+                            <div class="projet">
+                                <?php
+                                if (has_post_thumbnail()) {
+                                    the_post_thumbnail(); 
+                                }
+                                ?>
+                                <h3><?php the_title(); ?></h3>
+                                <p><?php echo get_field('sous-titre'); ?></p>
+                            </div>
+                        </a>
                 <?php
                     endwhile;
                     wp_reset_postdata(); 
@@ -55,6 +55,9 @@ get_header(); ?>
                 ?>
             </div>
         </section>
+        <div id="introContact">
+        <p class="introContact">Feel free to reach out to me for any inquiries, feedback, or questions regarding my projects or services. I'm here to listen and assist you in any way I can!</p>
+        </div>
         <section id="contact" class="contact-container">
             <div class="form-container">
                 <?php 

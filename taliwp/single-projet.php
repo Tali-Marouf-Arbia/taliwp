@@ -81,7 +81,32 @@ get_header();
             ?>
         </p>
     </div>
+    <div class="fleches-container">
+        <?php
+        // Récupérer les liens vers les projets précédents et suivants
+        $prev_custom_post = get_previous_post();
+        $next_custom_post = get_next_post();
+
+        // Afficher la flèche de gauche si un projet précédent existe
+        if ($prev_custom_post) {
+            $prev_custom_post_link = get_permalink($prev_custom_post);
+            echo '<a href="' . esc_url($prev_custom_post_link) . '"><img src="' . get_template_directory_uri() . '/assets/images/arrow-left.png" alt="photo précédente" class="arrow-left"/></a>';
+        } else {
+            echo '<a><img src="' . get_template_directory_uri() . '/assets/images/arrow-left.png" alt="projet précédent" class="arrow-left"/></a>';
+        }
+
+        // Afficher la flèche de droite si un projet suivant existe
+        if ($next_custom_post) {
+            $next_custom_post_link = get_permalink($next_custom_post);
+            echo '<a href="' . esc_url($next_custom_post_link) . '"><img src="' . get_template_directory_uri() . '/assets/images/arrow-right.png" alt="photo suivante" class="arrow-right"/></a>';
+        } else {
+            echo '<a><img src="' . get_template_directory_uri() . '/assets/images/arrow-right.png" alt="projet suivant" class="arrow-right"/></a>';
+        }
+        ?>
+    </div>
 </section>
+
+
 
 <?php
 get_footer();
