@@ -34,12 +34,17 @@ get_header();
             <?php
             $technologies = get_field('technologies');
             if ($technologies) {
-                echo $technologies;
+                foreach ($technologies as $technology) {
+                    // Utilise le préfixe "tech-" suivi du nom de la technologie comme classe CSS
+                    echo '<span class="tech tech-' . strtolower(str_replace('#', '', $technology)) . '">' . $technology . '</span>';
+                }
             } else {
                 echo 'Aucune technologie définie pour ce projet.';
             }
             ?>
         </p>
+
+
         
         <h3>Objectives :</h3>
         <p class="objectifs">

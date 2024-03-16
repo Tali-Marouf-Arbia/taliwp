@@ -20,53 +20,41 @@ get_header(); ?>
                 <a class="buttonCV cv-button" href="./assets/documents/cv.pdf" target="_blank">My CV</a>
             </div>
         </section>
-
-
-
-
-
-
-        
         <section class="projets-container">
             <div class="title-projets">
                 <h2 class="title-projet">Projects.</h2>
                 <p class="introProjet">I enthusiastically explored HTML, CSS, PHP, and JavaScript through realistic projects that simulated a professional environment. This experience has allowed me to discover the unlimited potential of technology in creating captivating online experiences.</p>
             </div>
-
-            <div class="projets-cards">
-                <article class="card">
-                    <a href="#">
-                        <img/>
-                        <div class="card-content">
-                            <div class="card-txt">
-                                <h3 class="card-title">TITRE</h3>
-                                <p class="card-subtitle">Description</p>
-                            </div>
+            <div class="projets-list">
+                <?php
+                $args = array(
+                    'post_type' => 'projet',
+                    'posts_per_page' => -1,
+                );
+                $projects_query = new WP_Query($args);
+                if ($projects_query->have_posts()) :
+                    while ($projects_query->have_posts()) : $projects_query->the_post();
+                ?>
+                    <a href="<?php the_permalink(); ?>" class="projet-link" target="_blank">
+                        <div class="projet">
+                            <?php
+                            if (has_post_thumbnail()) {
+                                the_post_thumbnail('thumbnail');
+                            }
+                            ?>
+                            <h3><?php the_title(); ?></h3>
+                            <p><?php echo get_field('sous-titre'); ?></p>
                         </div>
                     </a>
-                </article>
+                <?php
+                    endwhile;
+                    wp_reset_postdata(); 
+                else :
+                    echo 'No projects found';
+                endif;
+                ?>
             </div>
-
-
-
-
-            
-            <div class="card-tech">
-                    <!-- <i class="fa-brands fa-html5 fa-xl" style="color: #ff0000;"></i>
-                    <i class="fa-brands fa-css3-alt fa-xl" style="color: #0000ff;"></i> -->
-            </div>
-
-
         </section>
-        
-        
-        
-        
-        
-        
-        
-        
-        
         <section id="contact" class="contact-container">
             <div class="form-container">
                 <?php 

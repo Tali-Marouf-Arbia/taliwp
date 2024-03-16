@@ -714,3 +714,72 @@ figure.wp-block-image img,
 .description{
     font-size: 24px !important;
 }
+
+/**** techno  ****/
+.technologies{
+    margin-bottom: 50px;
+}
+.tech-html {
+    color: #E44D26 !important; /* Rouge pour HTML */
+}
+
+.tech-css {
+    color: #1572B6; /* Bleu pour CSS */
+}
+
+.tech-js {
+    color: #F7DF1E; /* Jaune pour JavaScript */
+}
+
+.tech-php {
+    color: #6bf0ff; /* Rose pour PHP */
+}
+
+.tech-wordpress {
+    color: #d5d3d3; /* Gris clair pour WordPress */
+}
+
+.tech-lighthouse {
+    color: #6FD454; /* Vert clair pour Lighthouse */
+}
+.tech{
+    font-size: 20px;
+    padding: 0 10px;
+}
+
+
+/******index Grille Projets *****/
+
+.projets-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.projet {
+    border-radius: 25px;
+    background-color: #f5f5f5; /* couleur de fond gris clair */
+    padding: 20px;
+}
+
+.projet-link {
+    text-decoration: none; /* supprimer le soulignage du lien */
+    color: inherit; /* hériter de la couleur du texte parent */
+}
+
+/* Assurez-vous que les images ne dépassent pas de leur conteneur */
+.projet img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Style pour le titre */
+.projet h3 {
+    margin-top: 10px; /* un peu d'espace au-dessus du titre */
+}
+
+/* Style pour le sous-titre */
+.projet p {
+    font-style: italic; /* texte en italique */
+    color: #666; /* couleur de texte gris */
+}
