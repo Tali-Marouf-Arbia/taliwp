@@ -19,7 +19,7 @@ get_header();
             if ($sousTitre) {
                 echo $sousTitre;
             } else {
-                echo 'Aucun sous-titre défini pour ce projet.';
+                echo 'No sub-title.';
             }
             ?>
         </p>
@@ -39,7 +39,7 @@ get_header();
                     echo '<span class="tech tech-' . strtolower(str_replace('#', '', $technology)) . '">' . $technology . '</span>';
                 }
             } else {
-                echo 'Aucune technologie définie pour ce projet.';
+                echo 'No tech.';
             }
             ?>
         </p>
@@ -53,7 +53,7 @@ get_header();
             if ($objectifs) {
                 echo $objectifs;
             } else {
-                echo 'Aucun objectif défini pour ce projet.';
+                echo 'No objectives.';
             }
             ?>
         </p>
@@ -65,21 +65,63 @@ get_header();
             if ($description) {
                 echo $description;
             } else {
-                echo 'Aucune description définie pour ce projet.';
+                echo 'No description.';
             }
             ?>
         </p>
+        <h3>Development Stages :</h3>
+            <p class="description devStages">
+                <?php
+                $developmentStages = get_field('etapes');
+                if ($developmentStages) {
+                    echo $developmentStages;
+                } else {
+                    echo 'No development stage.';
+                }
+                ?>
+            </p>
 
-        <p class="lien-github">
+            <div class="liens-ressources">
             <?php
-            $github_url = get_field('github');
-            if ($github_url) {
-                echo '<a id="lien-github" href="' . esc_url($github_url) . '">' . esc_url($github_url) . '</a>';
-            } else {
-                echo '';
+            $cahier_des_charges_url = get_field('cahier_des_charges');
+
+            if ($cahier_des_charges_url) {
+                echo '<h3>Resources :</h3>';
+                echo '<div class="ressources-container">';
+                echo '<p class="cahier-des-charges">';
+                echo '<a class="lien-ressources" href="' . esc_url($cahier_des_charges_url) . '">Specifications Doc</a>';
+                echo '</p>';
+                
             }
             ?>
-        </p>
+
+
+            <p class="maquette">
+                <?php
+                $maquette = get_field('maquettes');
+                if (!empty($maquette)) {
+                    echo '<a class="lien-ressources" href="' . esc_url($maquette) . '">Figma Mockup</a>';
+                    echo '</div>';
+                } else {
+                    echo " ";
+                }
+                ?>
+            </p>
+        
+
+        <?php
+        $github_url = get_field('github');
+
+        if ($github_url) {
+            ?>
+            <p class="lien-github">
+                <a class="lien-github" id="lien-github" href="<?php echo esc_url($github_url); ?>">
+                <img class="lien-github" id="lien-github" src="<?php echo get_template_directory_uri() ?>/assets/images/github-logo.png" alt="GitHub">        </a>
+            </p>
+            <?php
+        }
+        ?>
+    </div>
     </div>
     <div class="fleches-container">
         <?php

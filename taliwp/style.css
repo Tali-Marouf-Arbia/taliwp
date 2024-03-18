@@ -184,16 +184,19 @@ header,footer{
     font-size: 16px;
     height: 80px;
     color: #97a6c3;
-    padding: 0 50px 0 50px;
+    padding: 0 80px 0 80px;
+    z-index: 1;
 }
 img.logo{
-    height: 60px !important;
-    width: 100px !important;
-    border-radius: 50%;
+    height: 70px !important;
+    width: 140px !important;
+    border-radius: 40%;
+    border: 3px solid;
 }
 #menu-header, #menu-footer{
     display: flex;
     flex-direction: row;
+    padding: 0;
 }
 #menu-header li,
 #menu-footer li {
@@ -210,6 +213,9 @@ img.logo{
     text-decoration: none;
     color:#97a6c3;
     font-size: 14px;
+}
+#menu-header li a{
+    font-size: 18px !important;
 }
 #menu-header li a:hover,
 #menu-footer li a:hover{
@@ -246,8 +252,9 @@ footer{
     } */
     /**HEADER**/
     #header{
-        height: 72px;
-        padding: 0 0 0 15px !important;
+        height: 80px;
+        padding: 20px 0 0 15px !important;
+        margin-bottom: 30px;
     }
     .menu-header-container {
         margin-right: 0;
@@ -378,6 +385,9 @@ footer{
     font-style: normal;
     font-weight: 900;
 }
+.lien-ocr{
+    color: #06c7dd;
+}
 .overview{
     font-size: inherit;
     font-weight: 400;
@@ -405,7 +415,7 @@ footer{
         font-size: 14px !important;
     }
     .justify-center{
-        width: 90%;
+        width: 98%;
     }
     .presentation{
         width: inherit;
@@ -457,7 +467,7 @@ input.wpcf7-text{
     border-radius: 45px;
     background-color: #240159;
     box-shadow: rgb(255, 255, 255) 0px 4px 8px;
-
+    z-index: 1;
 }
 #getintouch{
     font-size: 18px;
@@ -511,36 +521,28 @@ textarea{
     #getintouch{
         font-size: 16px;
     }
-    .map-container{
+    /* .map-container{
         width: 162px !important;
         height: 150px !important;
-    }
+    } */
     input, textarea{
         width: 83%;
     }
 }
-
 /****** map *****/
 .map-container{
     height: 290px;
-    width: 295px;
+    width: 290px;
     align-items: center;
     border-radius: 50%;
     overflow: hidden;
     box-shadow: 0 0 60px rgba(212, 0, 255, 0.4);  
 }
-
-iframe{
-    width: 99%;
-    height: 99%;
-    border-radius: 50% !important;
-}
-
 /**** CV BOUTON ****/
 .cv-container{
     display: flex;
     justify-content: center;
-    margin: 50px 0;
+    margin: 50px 0 auto;
 }
 .buttonCV {
     width: 30%;
@@ -572,7 +574,6 @@ iframe{
         display: inherit;
     }
 }
-
 /************ section projets *************/
 .projets-container{
     width: 70%;
@@ -598,27 +599,32 @@ iframe{
         font-size: 14px;
     }
 }
-/******* animations survol dform cv button et map *********/
-
+/******* animations survol dform cv button *********/
 #wpcf7-f16-o1,
 .cv-button,
-#lien-github,
 .projet{
     --rotateX: 0deg; 
     --rotateY: 0deg; 
     transform: perspective(1000px) rotateX(var(--rotateX)) rotateY(var(--rotateY)) scale3d(1, 1, 1);
-}
+    transition: transform 0.3s ease;
 
+}
 #wpcf7-f16-o1:hover,
 .cv-button:hover,
-#lien-github:hover,
-.projet:hover {
+.projet:hover{
     transform: perspective(1000px) rotateX(var(--rotateX)) rotateY(var(--rotateY)) scale3d(1.05, 1.05, 1.05);
 }
-
-
+@media screen and (max-width: 454px) {
+    #wpcf7-f16-o1,
+    .cv-button{
+    transform: none;
+    }
+    #wpcf7-f16-o1:hover,
+    .cv-button:hover{
+    transform: none;
+    }
+}
 /*** projets cards accueil ***/
-
 .projets-cards{
     display: flex;
     flex-wrap: wrap;
@@ -630,8 +636,7 @@ iframe{
     padding: 5px;
       padding-bottom: 5px;
     filter: drop-shadow(0px 3px 15px rgba(0, 0, 0, 0.1));
-  }
-
+}
 .projets-cards .card {
     display: flex;
     flex-direction: column;
@@ -640,33 +645,22 @@ iframe{
     border-radius: 20px;
     width: 30%;
 }
-
 .projets-cards img {
     width: 100%;
     height: 120px;
     border-radius: 20px 20px 0 0;
 }
-
 .projets-cards .card-content {
     padding-left: 15px;
     display: flex;
     flex-direction: column;
 }
-
 .projets-cards .card-title {
     margin: 10px 0 10px 0;
 }
-
 .projets-cards .card-subtitle {
     margin: 0;
 }
-
-
-
-
-
-
-
 /**********Single Projet**********/
 .projet-container{
     width: 70%;
@@ -674,16 +668,15 @@ iframe{
     justify-content: center;
     align-items: center;
     flex-direction: column;
-
+    margin-bottom: 40px;
 }
-
 .projet-container h2{
     font-size: 64px;
     color: #8125c9;
     font-weight: 800;
     margin: 15px 0 0 0;
+    text-align: center;
 }
-
 .projet-sous-titre{
     font-size: 30px;
     font-weight: 600;
@@ -691,14 +684,18 @@ iframe{
     width: 75%;
     margin-bottom: 60px;
 }
-
-figure.wp-block-image img,
+figure.wp-block-image img{
+    padding: 10px;
+    border: 4px solid;
+    border-radius: 45px;
+    background-color: #240159;
+    box-shadow: rgb(255, 255, 255) 0px 4px 8px;
+}
 .description-container,
 .objectifs-container{
     border: 3px solid #8125c9;
     border-radius: 25px;
 }
-
 .projet-container h3{
     font-family: 'poppins';
     color: #fff;
@@ -706,52 +703,54 @@ figure.wp-block-image img,
     font-size: 28px;
 }
 .lien-github a {
-    color: #fff;
-    font-size: 20px;
-    width: 100%;
-    margin: 20px 0px;
-    padding: 28px 20px;
+    width: 130px;
+    height: 130px;
     background-color: #240159;
-    border-radius: 45px;
-    font-weight: 600;
+    border-radius: 50%;
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
     border: 1px solid violet;
     box-shadow: rgba(255, 255, 255, 0.3) 0px 2px 18px;
 }
+.lien-github a img{
+    width: 100%;
+    object-fit: cover;
+}
+.lien-github a:hover{
+    border: 2px solid #fff;
+    box-shadow: #8125c9 0px 2px 18px;
 
+}
 .objectifs,
 .description{
     font-size: 24px !important;
 }
-
 /**** techno  ****/
 .technologies{
     margin-bottom: 50px;
 }
 .tech-html {
-    color: #E44D26 !important; /* Rouge pour HTML */
+    color: #E44D26 !important; 
 }
-
 .tech-css {
-    color: #1572B6; /* Bleu pour CSS */
+    color: #1572B6; 
 }
 
 .tech-js {
-    color: #F7DF1E; /* Jaune pour JavaScript */
+    color: #F7DF1E;
 }
 
 .tech-php {
-    color: #6bf0ff; /* Rose pour PHP */
+    color: #6bf0ff; 
 }
 
 .tech-wordpress {
-    color: #d5d3d3; /* Gris clair pour WordPress */
+    color: #d5d3d3; 
 }
 
 .tech-lighthouse {
-    color: #6FD454; /* Vert clair pour Lighthouse */
+    color: #6FD454; 
 }
 .tech{
     font-size: 20px;
@@ -772,7 +771,7 @@ figure.wp-block-image img,
     border: 3px solid black;
     border-radius: 25px;
     background-color:#240159; 
-    padding: 20px;
+    padding: 8px;
     box-shadow: rgb(255, 255, 255) 0px 1px 8px;
 }
 .projet-link {
@@ -783,22 +782,25 @@ figure.wp-block-image img,
     max-width: 100%;
     height: 60%;
     object-fit: cover;
-    border-radius: 25px ;
+    border-radius: 15px ;
 }
 .projet h3 {
     margin-top: 10px;
+    margin-bottom: 0px;
     text-align: center;
     color: #ffffff;
 }
 .projet p {
     text-align: center;
     color: #97a6c3;
+    font-weight: 400;
 }
 
 .fleches-container{
-    width: 70%;
+    width: 50%;
     display: flex;
     justify-content: space-between;
+    background-color: rgba(5,8,21,255);
 }
 
 .fleches-container a{
@@ -835,4 +837,159 @@ figure.wp-block-image img,
 }
 .arrow-right:hover {
     animation: moveLeftRight 0.5s ease infinite;
+}
+
+/*****Ressources single projet *****/
+.lien-ressources{
+    color: #06c7dd;
+}
+
+@media screen and (max-width: 850px) {
+    .projet-container{
+        width: 98%;
+    }
+    .projet-container h3{
+        font-size: 24px !important;
+    }
+    .projet-container h2{
+        font-size: 48px;
+    }
+    .projet-sous-titre{
+        font-size: 22px;
+        margin-bottom: 40px !important;
+        width: 100%;
+    }
+
+    .tech{
+        font-size: 12px;
+    }
+    .objectifs,
+    .description{
+        font-size: 16px !important;
+    }
+    #introContact{
+        width: 100%;
+    }
+    .introContact{
+        font-size: 22px !important;
+        margin-bottom: 40px;
+    }
+}
+@media screen and (max-width: 1070px) {
+    .projets-list {
+        grid-template-columns: repeat(2, 1fr); 
+    }
+}
+@media screen and (max-width: 714px) {
+    .projets-list {
+        grid-template-columns: repeat(1, 1fr); 
+    }
+    .projet-link{
+        margin: 10px;
+    }
+}
+
+
+
+
+.contact-container {
+    position: relative;
+    /* overflow: hidden; */
+}
+
+.map-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    animation: moveMap 50s linear infinite; 
+}
+
+@keyframes moveMap {
+    0% {
+        transform: translate(-200%, 0%) rotate(0deg); 
+    }
+    50% {
+        transform: translate(300%, 100%) rotate(360deg); 
+    }
+    100% {
+        transform: translate(600%, 200%) rotate(720deg); 
+    }
+}
+/**fadein sections **/
+.hidden {
+    opacity: 0;
+    transform: translateY(70px); 
+    transition: opacity 2s ease, transform 2s ease; 
+}
+
+.visible {
+    opacity: 1;
+    transform: translateY(0); 
+    transition: opacity 1s ease, transform 2s ease;
+}
+
+/****nav socials Links******/
+.social-links{
+    display: flex;
+    width: 100px;
+    height: 27px;
+    flex-direction: row;
+    align-items: center;
+}
+
+.social-links a{
+    width: 50%;
+    margin: 5px;
+    border: 1px solid #8125c9;
+    border-radius: 50%;
+    box-shadow: rgba(255, 255, 255, 0.241) 0px 2px 18px;
+}
+.social-links a img{
+    width: 100%;
+    object-fit: contain;
+    align-items: center;
+    display: flex;
+}
+.social-links a:hover{
+    border: 1px solid #fff;
+}
+.menu-header-container{
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    margin-right: 50px;
+}
+@media screen and (max-width: 714px) {
+    .social-links{
+        margin-right: 10px;
+    }
+    .social-links a{
+        margin: 2px !important;
+        display: flex;
+        align-items: center;
+        width: 25px;
+        height: 25px;
+    }
+    
+}
+
+/***dev stages**/
+.description span{
+    color: #8125c9;
+    font-weight: 600;
+}
+
+/***Ressources single-projet***/
+.ressources-container{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.ressources-container p{
+    margin: 14px 20px;
+}
+.liens-ressources{
+    text-align: center;
+    display: contents;
 }
