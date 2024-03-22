@@ -7,11 +7,9 @@ add_action('wp_enqueue_scripts', 'enqueue_my_theme_styles');
 
 // Enqueue scripts.js
 function enqueue_scripts_js() {
-    wp_enqueue_script('js-script', get_template_directory_uri() . '/scripts.js', array(), '1.0', true);
+    wp_enqueue_script('js-script', get_template_directory_uri() . '/scripts.js', array(), '1.0');
 }
 add_action('wp_enqueue_scripts', 'enqueue_scripts_js');
-
-
 
 // Fonction pour enregistrer mes menus
 function register_my_menus() {
@@ -24,8 +22,7 @@ function register_my_menus() {
 }
 add_action('after_setup_theme', 'register_my_menus');
 
-
-// Fonction pour ajouter le support des miniatures pour le Custom PT "Photos"
+// Fonction pour ajouter le support des miniatures pour le Custom PT "Projets"
 function add_thumbnail_photos() {
     add_theme_support('post-thumbnails');
 }

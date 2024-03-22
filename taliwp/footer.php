@@ -8,6 +8,7 @@
   ?>
   <p>Copyright © 2024 TaliWP.</p>
 </footer>
+<?php  //get_template_part('template-parts/lightbox');?>
 <?php wp_footer(); ?>  
 </div>
 </body>

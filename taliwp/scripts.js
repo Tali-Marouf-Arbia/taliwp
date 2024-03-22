@@ -16,7 +16,6 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 
-
 // animation form / cv-button
 document.addEventListener('DOMContentLoaded', function() {
     var formContainer = document.getElementById('wpcf7-f16-o1');
@@ -34,33 +33,34 @@ document.addEventListener('DOMContentLoaded', function() {
         var rotateX, rotateY;
 
         // Calcul des valeurs de rotation en fonction de la position du curseur
-        rotateX = -21.88 * percentY; // X (de bas en haut)
-        rotateY = 22.5 * percentX; // Y (de gauche à droite)
+        rotateX = -21.88 * percentY;
+        rotateY = 22.5 * percentX; 
 
         element.style.setProperty('--rotateX', rotateX + 'deg');
         element.style.setProperty('--rotateY', rotateY + 'deg');
     }
-
-    formContainer.addEventListener('mousemove', function(event) {
-        applyTransform(formContainer, event);
-    });
-
-    formContainer.addEventListener('mouseleave', function() {
-        formContainer.style.setProperty('--rotateX', '0deg'); // Réinitialisation de la rotation X
-        formContainer.style.setProperty('--rotateY', '0deg'); // Réinitialisation de la rotation Y
-    });
-
+    if (formContainer) {
+        formContainer.addEventListener('mousemove', function(event) {
+            applyTransform(formContainer, event);
+        });
+    
+        formContainer.addEventListener('mouseleave', function() {
+            formContainer.style.setProperty('--rotateX', '0deg');
+            formContainer.style.setProperty('--rotateY', '0deg');
+        });
+    }
+    
+    if (cvButton) {
     cvButton.addEventListener('mousemove', function(event) {
         applyTransform(cvButton, event);
     });
 
     cvButton.addEventListener('mouseleave', function() {
-        cvButton.style.setProperty('--rotateX', '0deg'); // Réinitialisation de la rotation X
-        cvButton.style.setProperty('--rotateY', '0deg'); // Réinitialisation de la rotation Y
-    });
+        cvButton.style.setProperty('--rotateX', '0deg'); 
+        cvButton.style.setProperty('--rotateY', '0deg');
+    });}
 });
-
-
+// animation projets grid
 document.addEventListener('DOMContentLoaded', function() {
     var projetItems = document.querySelectorAll('.projet-animate');
 
@@ -74,10 +74,10 @@ document.addEventListener('DOMContentLoaded', function() {
         var percentY = deltaY / (rect.height / 2); 
         
         var rotateX, rotateY;
-
+        
         // Calcul des valeurs de rotation en fonction de la position du curseur
-        rotateX = -21.88 * percentY; // X (de bas en haut)
-        rotateY = 22.5 * percentX; // Y (de gauche à droite)
+        rotateX = -21.88 * percentY; 
+        rotateY = 22.5 * percentX;
 
         element.style.setProperty('--rotateX', rotateX + 'deg');
         element.style.setProperty('--rotateY', rotateY + 'deg');
@@ -89,24 +89,22 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 
         item.addEventListener('mouseleave', function() {
-            item.style.setProperty('--rotateX', '0deg'); // Réinitialisation de la rotation X
-            item.style.setProperty('--rotateY', '0deg'); // Réinitialisation de la rotation Y
+            item.style.setProperty('--rotateX', '0deg'); 
+            item.style.setProperty('--rotateY', '0deg'); 
         });
     });
 });
 
 // fade-in sur sections
-const sections = document.querySelectorAll('section');
-// Créez un observateur d'intersection
-const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-        }
-    });
-}, { threshold: 0.3 }); 
-
-// Observer chaque section
-sections.forEach(section => {
-    observer.observe(section);
-});
+// const sections = document.querySelectorAll('section');
+// observateur d'intersection
+// const observer = new IntersectionObserver(entries => {
+//     entries.forEach(entry => {
+//         if (entry.isIntersecting) {
+//             entry.target.classList.add('visible');
+//         }
+//     });
+// }, { threshold: 0.3 }); 
+// sections.forEach(section => {
+//     observer.observe(section);
+// });
